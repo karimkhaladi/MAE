@@ -18,6 +18,7 @@ import AllWorkshops from './views/AllWorkshops'
 import Workshop from './views/workshop'
 import { useState } from 'react'
 import Profil from './views/profil'
+import QuizApp from './Component/Quiz'
 axios.defaults.baseURL='http://localhost:8000'
 function App() {
   const [user,setUser]=useState("")
@@ -34,6 +35,7 @@ console.log(user)
           <Route path="/" element={<Layout />} >
             <Route path="/" element={<Main />}/>
             <Route path="/profil" element={<Profil />}/>
+            <Route path="/quiz" element={<QuizApp />}/>
             <Route path='/Workshops' element={<AllWorkshops />} />  
             <Route path='/workshop/:id' element ={<Workshop />} />
             

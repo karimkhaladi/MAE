@@ -8,7 +8,7 @@ function Cour() {
     const [cours,setCours]=useState()
     console.log(cour)
     useEffect(()=>{
-        axios.get("/api/cour/"+cour)
+        axios.get("/api/cour/"+cour)  
         .then((res)=>setCours(res.data))
         .catch((err)=>console.log(err))
     },[])
