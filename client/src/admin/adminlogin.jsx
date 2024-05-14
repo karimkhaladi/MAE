@@ -5,12 +5,14 @@ import axios from 'axios';
 import Alert from '../Component/Alert';
 
 function Adminlogin() {
+    // State variables to store email, password, error message, and success message
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [err, setErr] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
     const navigate = useNavigate();
 
+    // Function to handle form submission
     const handelsubmit = (e) => {
         e.preventDefault();
         axios.post("/api/admin/login", { email, password }, { withCredentials: true })
@@ -34,8 +36,8 @@ function Adminlogin() {
             });
     };
 
+    // Effect to hide the error message after 3 seconds if present
     useEffect(() => {
-        // Hide the error message after 3 seconds if present
         if (err) {
             const errorTimeout = setTimeout(() => {
                 setErr('');
@@ -45,8 +47,8 @@ function Adminlogin() {
         }
     }, [err]);
 
+    // Effect to hide the success message after 3 seconds if present
     useEffect(() => {
-        // Hide the success message after 3 seconds if present
         if (successMessage) {
             const successTimeout = setTimeout(() => {
                 setSuccessMessage('');
@@ -58,6 +60,7 @@ function Adminlogin() {
 
     return (
         <div className='w-96 mx-auto mt-32'>
+            {/* Login form */}
             <form className="mt-6" onSubmit={handelsubmit}>
                 <div>
                     <label className="block text-gray-700">Admin</label>
@@ -71,6 +74,7 @@ function Adminlogin() {
                 <button type="submit" className="w-full block bg-[#168859] hover:bg-[#05f792 text-white font-semibold rounded-lg px-4 py-3 mt-6">Log In</button>
             </form>
 
+            {/* Error alert */}
             {err && (
                 <Alert
                     message={err}
@@ -79,6 +83,7 @@ function Adminlogin() {
                 />
             )}
 
+            {/* Success alert */}
             {successMessage && (
                 <Alert
                     message={successMessage}

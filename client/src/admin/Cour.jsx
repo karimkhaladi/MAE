@@ -1,28 +1,33 @@
-import React from 'react'
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function Cour() {
-    const {cour}=useParams();
-    const [cours,setCours]=useState()
-    console.log(cour)
-    useEffect(()=>{
-        axios.get("/api/cour/"+cour)  
-        .then((res)=>setCours(res.data))
-        .catch((err)=>console.log(err))
-    },[])
+    // Get the 'cour' parameter from the URL
+    const { cour } = useParams();
     
-  return (
-    <div>
-      {cours?
+    // State variable to store the fetched course
+    const [cours, setCours] = useState();
+
+    // Fetch the course data when the component mounts
+    useEffect(() => {
+        axios.get("/api/cour/" + cour)  
+            .then((res) => setCours(res.data))
+            .catch((err) => console.log(err));
+    }, []);
+
+    return (
         <div>
-            <embed src={`http://localhost:8000/pdf/${cours.filename}`} width="100%" height="900px" />
+            {/* Render the course if it exists */}
+            {cours ? (
+                <div>
+                    {/* Embed the PDF file */}
+                    <embed src={`http://localhost:8000/pdf/${cours.filename}`} width="100%" height="900px" />
+                </div>
+            ) : null}
         </div>
-        :null
-    }
-    </div>
-  )
+    );
 }
 
-export default Cour
+export default Cour;
