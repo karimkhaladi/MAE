@@ -13,9 +13,9 @@ import { Carousel,IconButton ,Card,
   Button,} from "@material-tailwind/react";
 function AllWorkshops() {
 
-  const [user,setUser]=useState({})
+  const [user,setUser]=useState()
   const navigate = useNavigate()
-  
+
   useEffect(() => {
       axios.get('/api/profil',{withCredentials: true})
       .then(res=>
@@ -23,19 +23,20 @@ function AllWorkshops() {
             setUser(res.data)})
           .catch(err=>navigate('/'))
   }, []); 
-  console.log(user)
   const [workshops,setWorkshops]=useState()
-
+  
   useEffect(() => {
-      axios.get('/api/workshops',{withCredentials: true})
-      .then(res=>
-          {
-          setWorkshops(res.data)})
-  }
-  , []); 
+    axios.get('/api/workshops',{withCredentials: true})
+    .then(res=>
+      {
+        setWorkshops(res.data)})
+      }
+      , []); 
+
 
   const enroll=(workshopp)=>{
-    axios.patch("/api/enroll/"+user._id,{workshopp})
+
+    axios.patch(`/api/enroll/${user.user._id}`,{workshopp})
   }
 return (
   <>
@@ -64,16 +65,19 @@ return (
               </CardBody>
               <CardFooter className="pt-0 gap-4">
                 <Typography variant="h5" className='flex gap-4 items-center justify-end' >
-                  {user?
-                  <>
-                    {user.workshops.some(item => item.includes(workshop._id))?
-                      <Link  to={'/workshop/'+workshop._id}><Button className='bg-[#469924]'>show</Button></Link>
-                        
-                      :<Link to={'/workshop/'+workshop._id}><Button className='bg-[#469924]' onClick={(e)=>enroll(workshop._id)}>Enroll</Button></Link>
-                  }
-                  </> 
-                  :null 
-                }
+                {user ? (
+          user.user.workshops.some(item => item === workshop._id) ? (
+            <Link to={`/workshop/${workshop._id}`}>
+              <Button className="bg-[#469924]">Show</Button>
+            </Link>
+          ) : (
+            <Link to={`/workshop/${workshop._id}`}>
+              <Button className="bg-[#469924]" onClick={() => enroll(workshop._id)}>
+                Enroll
+              </Button>
+            </Link>
+          )
+        ) : null}
                 </Typography>
               </CardFooter>
             </Card>

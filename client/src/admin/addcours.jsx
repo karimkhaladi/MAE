@@ -39,7 +39,7 @@ function NewWorkshop() {
             <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
               <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
                 <div className="text-gray-600">
-                  <p className="font-medium text-lg">Workshop Details</p>
+                  <p className="font-medium text-lg">Cour Details</p>
                   <p>Please fill out all the fields.</p>
                 </div>
 
@@ -47,17 +47,17 @@ function NewWorkshop() {
                   <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5 ">
                     <div className="md:col-span-5">
                       <label>Titre</label>
-                      <input type="text" onChange={(e) => setTitre(e.target.value)} name="full_name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                      <input type="text" required onChange={(e) => setTitre(e.target.value)} name="full_name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                     </div>
 
                     <div className="md:col-span-5 mt-10">
                       <label>Description</label>
-                      <input onChange={(e) => setDescription(e.target.value)} type="text" name="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" />
+                      <input onChange={(e) => setDescription(e.target.value)} required type="text" name="email" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" />
                     </div>
                     <div className="md:col-span-2 mt-10">
                       <label>Upload PDF</label>
                       <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                        <input type='file' onChange={(e) => setPdf(e.target.files[0])} className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
+                        <input type='file' onChange={(e) => setPdf(e.target.files[0])} required className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
                       </div>
                     </div>
 

@@ -39,33 +39,33 @@ function NewWorkshop() {
             <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5 ">
               <div className="md:col-span-5">
                 <label >Titre</label>
-                <input type="text"  onChange={(e)=>setTitre(e.target.value)}  name="full_name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                <input type="text" required  onChange={(e)=>setTitre(e.target.value)}  name="full_name" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
               </div>
 
               <div className="md:col-span-5 mt-10">
                 <label >Description</label>
-                <input  onChange={(e)=>setDescription(e.target.value)}  type="text" name="email"  className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"placeholder="" />
+                <input  onChange={(e)=>setDescription(e.target.value)} required type="text" name="email"  className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"placeholder="" />
               </div>
           
 
               <div className="md:col-span-2 mt-10">
                 <label>Date Debut</label>
                 <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input onChange={(e)=>setDatedeb(e.target.value)}  type='date' className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
+                  <input onChange={(e)=>setDatedeb(e.target.value)} required type='date' className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
                 </div>
               </div>
 
               <div className="md:col-span-2 mt-10">
               <label>Date Fin</label>
                 <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input onChange={(e)=>setDatefin(e.target.value)}  type='date' className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
+                  <input onChange={(e)=>setDatefin(e.target.value)} required type='date' className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
                 </div>
               </div>  
               
               <div className="md:col-span-2 mt-10">
               <label >Upload Image</label>
                 <div className="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input type='file' accept="image/*" onChange={(e)=>setPhoto(e.target.files[0])}  className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
+                  <input type='file' required accept="image/*" onChange={(e)=>setPhoto(e.target.files[0])}  className="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" />
                 </div>
               </div>  
       

@@ -18,7 +18,7 @@ function Profil() {
     {
         user.user?
         <div className='mt-20 py-4 gap-20 px-4 container mx-auto text-xl flex flex-wrap  xl:flex-nowrap '>
-            <img className='rounded-full w-36 h-36' src="https://www.cityguide-dubai.com/fileadmin/_processed_/3/3/csm_img-worlds-of-adventures-teaser_40e4184da1.jpg" alt="" />
+            <img className='rounded-full w-36 h-36' src={`http://localhost:8000/public/usersImages/${user.user.filename}`} alt="" />
             <div>
                 <p>Name : {user.user.name}</p>
                 <p>Email : {user.user.email}</p>

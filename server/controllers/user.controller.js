@@ -187,8 +187,11 @@ module.exports = {
             }
           });
     },
+
     enroll: async(req,res)=>{
         const {workshopp}=req.body
+        const {id}=req.params.id
+        console.log(id)
         User.findOneAndUpdate({_id:req.params.id}, { $push: { workshops : workshopp }},{new:true})
         .then(updatedworkshop=>res.json(updatedworkshop))
         .catch((err)=>res.json(err))
