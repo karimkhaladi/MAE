@@ -1,49 +1,60 @@
 import React, { useState } from 'react';
+import axios from 'axios'
+import { useParams,Link } from 'react-router-dom';
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const QuizApp = () => {
-  const quizData = [
-    {
-      question: "Which language runs in a web browser?",
-      a: "Java",
-      b: "C",
-      c: "Python",
-      d: "JavaScript",
-      correct: "d",
-    },
-    {
-      question: "What does CSS stand for?",
-      a: "Central Style Sheets",
-      b: "Cascading Style Sheets",
-      c: "Cascading Simple Sheets",
-      d: "Cars SUVs Sailboats",
-      correct: "b",
-    },
-    {
-      question: "What does HTML stand for?",
-      a: "Hypertext Markup Language",
-      b: "Hypertext Markdown Language",
-      c: "Hyperloop Machine Language",
-      d: "Helicopters Terminals Motorboats Lamborginis",
-      correct: "a",
-    },
-    {
-      question: "What year was JavaScript launched?",
-      a: "1996",
-      b: "1995",
-      c: "1994",
-      d: "none of the above",
-      correct: "b",
-    },
-    // Add more questions here
-    {
-      question: "Who is the author of 'To Kill a Mockingbird'?",
-      a: "Harper Lee",
-      b: "J.K. Rowling",
-      c: "Stephen King",
-      d: "George Orwell",
-      correct: "a",
-    },
-  ];
+
+  const {id}=useParams();
+  useEffect(()=>{
+    axios.get("/api/oneworkshop/"+id)
+      .then((res)=>{
+        onopen(res.data.titre)
+      }
+    )  
+    .catch()
+  },[])
+
+  const [quizData,setquiz]=useState()
+  const onopen =(titre)=>{
+    console.log(titre)
+    switch(titre) {
+      case 'marketing':
+        setquiz([
+          {
+            question: "Which language runs in a web browser?",
+            a: "Java",
+            b: "C",
+            c: "Python",
+            d: "JavaScript",
+            correct: "d",
+          },
+          {
+            question: "s language runs in a web browser?",
+            a: "Java",
+            b: "C",
+            c: "Python",
+            d: "JavaScript",
+            correct: "d",
+          }
+        ]);
+        break;
+      case 'ss':
+        setquiz([
+          {
+            question: "hahaha?",
+            a: "babab",
+            b: "C",
+            c: "Python",
+            d: "JavaScript",
+            correct: "d",
+          }
+        ]);
+        break;
+      
+    }
+  }
 
   const [currentQuiz, setCurrentQuiz] = useState(0);
   const [score, setScore] = useState(0);
@@ -72,6 +83,8 @@ const QuizApp = () => {
   };
 
   return (
+    <>
+    
     <div className="max-w-md mx-auto my-8 bg-transparent">
       {showScore ? (
         <div className="bg-white shadow-md rounded-md p-6">
@@ -87,26 +100,35 @@ const QuizApp = () => {
           <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={resetQuiz}>Try Again</button>
         </div>
       ) : (
+        <>
+        {
+        quizData?
+
         <div className="bg-white bg-opacity-70 shadow-md rounded-md p-6">
           <h2 className="text-xl font-bold mb-4 text-red-600">{quizData[currentQuiz].question}</h2>
           <ul>
             {['a', 'b', 'c', 'd'].map((option) => (
               <li key={option} className="flex items-center mb-2">
                 <input
-                 type="radio"
-                 name="answer"
-                 id={option}
-                 className="mr-2 appearance-none bg-green-500 rounded-full w-4 h-4 checked:bg-green-500 checked:border-transparent focus:outline-none"
-                 onClick={() => handleAnswerClick(option)}
+                type="radio"
+                name="answer"
+                id={option}
+                className="mr-2 appearance-none bg-green-500 rounded-full w-4 h-4 checked:bg-green-500 checked:border-transparent focus:outline-none"
+                onClick={() => handleAnswerClick(option)}
                 />
                 <label htmlFor={option} id={`${option}_text`} className="select-none text-black">{quizData[currentQuiz][option]}</label>
-              </li>
-            ))}
-          </ul>
-        </div>
+                </li>
+              ))}
+           </ul>
+              </div>
+              :null
+            }
+            </>
       )}
     </div>
- );
-};
-
+ 
+      </>
+    );
+  };
+  
 export default QuizApp;

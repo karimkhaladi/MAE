@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Users from '../admin/users';
@@ -27,6 +27,7 @@ const handellogout=(e)=>{
   e.preventDefault
   axios.post('/api/logout',{},{withCredentials: true})
   navigate('/')
+  
 }
 
 const changepdf =(value)=>{
@@ -35,6 +36,11 @@ const changepdf =(value)=>{
 
   return (
     <>
+    <Link to={`/quiz/${id}`}>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4 ">
+          Take Quiz
+        </button>
+    </Link>
       {
       cours.length!=0?
     <div className=' gap-12 container mx-auto mt-20 flex ' >
@@ -53,6 +59,7 @@ const changepdf =(value)=>{
       :null
       
     }
+    
         {
         cours?
 <div className="mt-[-5] bg-white rounded-lg shadow-lg p-4 border border-green-500 hover:bg-green-100 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl hover:border-green-700">

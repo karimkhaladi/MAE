@@ -22,6 +22,7 @@ module.exports = app => {
     // Endpoint to get details of a single course by ID
     app.get("/api/cour/:id", workshop.onecours);
 
+    app.get("/api/oneworkshop/:id",workshop.oneworkshop)
     // Serving static files (PDF files)
     app.use('./pdf', express.static('pdf'));
 

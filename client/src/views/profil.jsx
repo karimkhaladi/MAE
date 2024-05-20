@@ -76,11 +76,7 @@ function Profil() {
                 </table>
                 :null
             }
-              <Link to="/quiz">
-                            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-                                Take Quiz
-                            </button>
-                        </Link>
+              
             </div>
         </div>
 

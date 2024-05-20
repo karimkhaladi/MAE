@@ -35,7 +35,7 @@ console.log(user)
           <Route path="/" element={<Layout />} >
             <Route path="/" element={<Main />}/>
             <Route path="/profil" element={<Profil />}/>
-            <Route path="/quiz" element={<QuizApp />}/>
+            <Route path="/quiz/:id" element={<QuizApp />}/>
             <Route path='/Workshops' element={<AllWorkshops />} />  
             <Route path='/workshop/:id' element ={<Workshop />} />
             
