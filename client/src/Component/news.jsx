@@ -6,6 +6,8 @@ import img2 from '../photos/img2.jpg'
 import img3 from '../photos/img3.jpg'
 import img4 from '../photos/img4.webp'
 import img5 from '../photos/img5.jpg'
+import img from '../photos/img.png'
+
 /* Install pure-react-carousel using -> npm i pure-react-carousel */
 
 function News() {
@@ -33,11 +35,9 @@ function News() {
                                     <img src={img3} alt="sitting area" className="object-cover object-center w-80 h-80 hover:scale-125 transition duration-300 ease-in-out transform" />
                                 </Slide>
                                 <Slide index={3}>
-                                    <img src={img4} alt="sitting area" className="object-cover object-center w-80 h-80 hover:scale-125 transition duration-300 ease-in-out transform" />
+                                    <img src={img} alt="sitting area" className="object-cover object-center w-80 h-80 hover:scale-125 transition duration-300 ease-in-out transform" />
                                 </Slide>
-                                <Slide index={4}>
-                                    <img src={img5} alt="black chair and white table" className="object-cover object-center w-80 h-80 hover:scale-125 transition duration-300 ease-in-out transform" />    
-                                </Slide>   
+                                 
                             </div>
                         </Slider>
                     </div>
@@ -74,7 +74,7 @@ function News() {
                                        <img src={img4} alt="sitting area" className="object-cover object-center w-full" />      
                                     </Slide>
                                     <Slide index={4}>
-                                        <img src={img5} alt="black chair and white table" className="object-cover object-center w-full" />
+                                        <img src={img} alt="black chair and white table" className="object-cover object-center w-full" />
                                     </Slide>
                                    </div>
                             </Slider>
@@ -111,7 +111,7 @@ function News() {
                                         <img src={img4} alt="sitting area" className="object-cover object-center w-full" />
                                     </Slide>
                                     <Slide index={4}>
-                                        <img src={img5} alt="black chair and white table" className="object-cover object-center w-full" /> 
+                                        <img src={img} alt="black chair and white table" className="object-cover object-center w-full" /> 
                                     </Slide>
                                 </div>
                             </Slider>

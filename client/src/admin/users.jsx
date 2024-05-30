@@ -53,7 +53,7 @@ function Users() {
                           <div className="font-semibold text-left">phonenumber</div>
                         </th>
                         <th className="p-2 whitespace-nowrap">
-                          <div className="font-semibold text-center">Country</div>
+                          <div className="font-semibold text-center">State</div>
                         </th>
                         <th>
                           <div className="font-semibold text-center">Delete</div>

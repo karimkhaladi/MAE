@@ -1,6 +1,6 @@
 const Cour = require("../models/cour.models"); // Importing the Cour model
 const Workshop = require('../models/workshop.models'); // Importing the Workshop model
-
+const User = require('../models/user.models');
 module.exports = {
     // Endpoint to get all workshops
     allworkshops: async (req, res) => {
@@ -67,9 +67,23 @@ module.exports = {
     },
     // Endpoint to delete a workshop by ID
     deleteworkshop: async (req, res) => {
-        Workshop.deleteOne({ _id: req.params.id })
-            .then(deletedWorkshop => res.json(deletedWorkshop))
-            .catch((err) => res.json(err));
+        try {
+            // First, delete the workshop
+            const deletedWorkshop = await Workshop.deleteOne({ _id: req.params.id });
+
+         
+
+            // Then, update all users who have this workshop in their workshops array
+            await User.updateMany(
+                { workshops: req.params.id },
+                { $pull: { workshops: req.params.id } }
+            );
+
+            // Respond with the deleted workshop information
+            res.json(deletedWorkshop);
+        } catch (err) {
+            res.status(400).json(err);
+        }
     },
     // Endpoint to delete a course by ID and remove it from the associated workshop
     deletecour: async (req, res) => {

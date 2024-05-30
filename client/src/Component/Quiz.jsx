@@ -15,7 +15,7 @@ const QuizApp = () => {
     )  
     .catch()
   },[])
-
+  const navigate=useNavigate()
   const [quizData,setquiz]=useState()
   const onopen =(titre)=>{
     console.log(titre)
@@ -55,11 +55,11 @@ const QuizApp = () => {
       
     }
   }
-
   const [currentQuiz, setCurrentQuiz] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
+  console.log(score)
 
   const handleAnswerClick = (selectedAnswer) => {
     const isCorrect = selectedAnswer === quizData[currentQuiz].correct;
@@ -70,7 +70,12 @@ const QuizApp = () => {
     const nextQuiz = currentQuiz + 1;
     if (nextQuiz < quizData.length) {
       setCurrentQuiz(nextQuiz);
-    } else {
+      
+    } else if(nextQuiz == quizData.length && score>=2) {
+      setShowScore(true);
+      navigate(`/certif/${id}`)
+    }
+    else{
       setShowScore(true);
     }
   };

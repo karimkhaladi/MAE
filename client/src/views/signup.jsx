@@ -155,7 +155,7 @@ function Signup() {
       </div>
       <h6
         className="block -mb-3 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-        phonenumber
+        Phone_Number
       </h6>
       <div  className="relative h-11 w-full min-w-[200px]">
       
@@ -176,7 +176,7 @@ function Signup() {
       </div>
       <h6
         className="block -mb-3 font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-        state
+        State
       </h6>
       <div  className="relative h-11 w-full min-w-[200px]">
       

@@ -63,7 +63,7 @@ function Adminlogin() {
             {/* Login form */}
             <form className="mt-6" onSubmit={handelsubmit}>
                 <div>
-                    <label className="block text-gray-700">Admin</label>
+                    <label className="block text-gray-700">Email</label>
                     <input onChange={(e) => { setEmail(e.target.value) }} type="email" placeholder="Enter Email Address" className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"/>
                 </div>
 

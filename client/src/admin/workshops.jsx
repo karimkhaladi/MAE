@@ -46,16 +46,16 @@ function Workshops() {
                     <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                       <tr>
                         <th className="p-2 whitespace-nowrap">
-                          <div className="font-semibold text-left">Titre</div>
+                          <div className="font-semibold text-left">Title</div>
                         </th>
                         <th className="p-2 whitespace-nowrap">
                           <div className="font-semibold text-center">Description</div>
                         </th>
                         <th className="p-2 whitespace-nowrap">
-                          <div className="font-semibold text-center">Date Deb</div>
+                          <div className="font-semibold text-center">Start date</div>
                         </th>
                         <th className="p-2 whitespace-nowrap">
-                          <div className="font-semibold text-center">Date Fin</div>
+                          <div className="font-semibold text-center">End date</div>
                         </th>
                         <th className="p-2 whitespace-nowrap">
                           <div className="font-semibold text-center">Delete</div>

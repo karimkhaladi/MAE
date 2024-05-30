@@ -19,6 +19,7 @@ import Workshop from './views/workshop'
 import { useState } from 'react'
 import Profil from './views/profil'
 import QuizApp from './Component/Quiz'
+import Certif from './views/certif'
 axios.defaults.baseURL='http://localhost:8000'
 function App() {
   const [user,setUser]=useState("")
@@ -30,6 +31,7 @@ console.log(user)
     <>
     <BrowserRouter>
       <Routes>
+            <Route path='certif/:id' element={<Certif/>} />
           <Route path="/login"  element={<Login change={change} />} />
           <Route path="/create_account" element={<Signup/>} />
           <Route path="/" element={<Layout />} >
@@ -38,7 +40,6 @@ console.log(user)
             <Route path="/quiz/:id" element={<QuizApp />}/>
             <Route path='/Workshops' element={<AllWorkshops />} />  
             <Route path='/workshop/:id' element ={<Workshop />} />
-            
           </Route>
           <Route path='/admin/login' element={<Adminlogin/>} />
           <Route path="/admin" element={<Admin />} >
